@@ -1,5 +1,5 @@
 
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form">
 
   <h2 class="text-center">Add product</h2>
 
@@ -40,6 +40,6 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Add</button>
+  <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted" (click)="submit()">Add</button>
 
 </form>

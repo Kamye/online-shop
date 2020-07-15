@@ -36,12 +36,8 @@ export class AddPageComponent implements OnInit {
     this.submitted = true;
 
     const product = {
-      type: this.form.value.type,
-      title: this.form.value.title,
-      photo: this.form.value.photo,
-      info: this.form.value.info,
-      price: this.form.value.price,
-      date: new Date()
+      date: new Date(),
+      ...this.form.value
     };
 
     this.productService.create(product).subscribe(res => {
