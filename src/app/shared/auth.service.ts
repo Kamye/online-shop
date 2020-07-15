@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-  // tslint:disable-next-line:typedef
+
   login(User) {
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, User)
     .pipe(
@@ -17,7 +17,6 @@ export class AuthService {
     );
   }
 
-  // tslint:disable-next-line:typedef
   private setToken(response) {
     if (response) {
       const expData = new Date (new Date().getTime() + +response.expiresIn * 1000);
@@ -28,7 +27,6 @@ export class AuthService {
     }
   }
 
-  // tslint:disable-next-line:typedef
   get token() {
     const expDate = new Date(localStorage.getItem('fb-token-exp'));
     if (new Date() > expDate) {
@@ -38,13 +36,11 @@ export class AuthService {
     return localStorage.getItem('fb-token');
   }
 
-  // tslint:disable-next-line:typedef
   logout() {
     this.setToken(null);
   }
 
-  // tslint:disable-next-line:typedef
   isAuthenticated() {
-    return !! this.token;
+    return !!this.token;
   }
 }
